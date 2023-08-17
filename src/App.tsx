@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import useDeviceDetect from "./useDeviceDetect";
-import Pyscript from "./pyscript";
+// import Pyscript from "./pyscript";
 
 function App() {
   const [devices, setDevices] = useState<any>();
@@ -181,8 +181,6 @@ function App() {
           <h5>Device Name: {pdaDevice?.label}</h5>
         </div>
       )}
-
-      <Pyscript />
     </div>
   );
 }
