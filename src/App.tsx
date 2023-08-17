@@ -102,8 +102,9 @@ function App() {
             (device) => device.kind === "videoinput"
           );
 
-          console.log("Audio Devices:");
+          // console.log("Audio Devices:");
           // audioDevices.forEach((device) => {
+          //   setPdaDevice({ ...pdaDevice, audioDevice: device });
           //   console.log("Device ID:", device.deviceId);
           //   console.log("Device Label:", device.label);
           // });
