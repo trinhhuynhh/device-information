@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import useDeviceDetect from "./useDeviceDetect";
+import Pyscript from "./pyscript";
 
 function App() {
   const [devices, setDevices] = useState<any>();
@@ -69,8 +70,25 @@ function App() {
 
   const isTouchDevice = useDeviceDetect();
 
+  const getMediaDevice2 = () => {
+    navigator.mediaDevices
+      .enumerateDevices()
+      .then((devices) => {
+        devices.forEach((device) => {
+          console.log(
+            `Device 2 ${device.kind}: ${device.label} id = ${device.deviceId}`
+          );
+        });
+      })
+      .catch((err) => {
+        console.error(`${err.name}: ${err.message}`);
+      });
+  };
+
   useEffect(() => {
     if (isTouchDevice) {
+      getMediaDevice2();
+
       navigator.mediaDevices
         .getUserMedia({ audio: false, video: true })
         .then(() => {
@@ -163,6 +181,8 @@ function App() {
           <h5>Device Name: {pdaDevice?.label}</h5>
         </div>
       )}
+
+      <Pyscript />
     </div>
   );
 }

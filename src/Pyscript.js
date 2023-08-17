@@ -4,24 +4,19 @@ const Pyscript = () => {
 
     const htmlText = `
   <py-config src="config.toml"></py-config>
-  <py-config>
-  - autoclose_loader: true
-  - runtimes:
-    - src: "https://cdn.jsdelivr.net/pyodide/dev/full/pyodide.js"
-      name: pyodide-dev
-      lang: python
-  </py-config>
-  <py-env>
-  - opencv-python
-  - paths:
-    - ./main.py
-  </py-env>
+  
   <py-script>
   import datetime as dt
+  import asyncio
+  from mathslib import subtract  
+  import random  
+
+  print(subtract(8, 4))  
+  print("random number generated: ")  
+  print(random.randint(1, 12))  
 
   def show_time(): 
     Element("today").write(str(dt.date.today()))
-  
   show_time()
 
   </py-script>
